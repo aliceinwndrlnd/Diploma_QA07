@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Diploma_QA07_Ozon.iml" filepath="$PROJECT_DIR$/.idea/Diploma_QA07_Ozon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Diploma_QA07_Ozon.iml" filepath="$PROJECT_DIR$/Diploma_QA07_Ozon.iml" />
     </modules>
   </component>
 </project>
