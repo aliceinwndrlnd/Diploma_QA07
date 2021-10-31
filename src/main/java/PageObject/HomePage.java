@@ -1,4 +1,4 @@
-package PageObject_Ozon;
+package PageObject;
 
 public class HomePage {
 }
