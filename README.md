@@ -1,1 +1,1 @@
-# Diploma_QA07_Ozon
+# Diploma_QA07
