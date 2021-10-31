@@ -17,6 +17,21 @@ public class LoginPage {
     @FindBy (className = "kf-cS-8bbc7 kf-cLS-c2977 kf-cLA-d9cc7 kf-cLZ-3e5d1")
     SelenideElement submitButton;
 
+    public LoginPage enterEmail() {
+        inputEmail.setValue("AutomationTestQA@yahoo.com");
+        return this;
+    }
+
+    public LoginPage enterPassword() {
+        inputPassword.setValue("AutomationTestQA1234");
+        return this;
+    }
+
+    public LoginPage clickSubmit() {
+        submitButton.click();
+        return this;
+    }
+
 
 
 }
