@@ -1,14 +1,14 @@
 package TestNG;
 
-import Properties.PropertyReader;
 import Driver.DriverCreation;
+import Driver.SelenideConfigurations;
+import Properties.PropertyReader;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import Driver.SelenideConfigurations;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,13 +19,14 @@ import java.util.Comparator;
 
 import static Driver.DriverCreation.getDriver;
 
+
 public class Listener implements ITestListener {
 
-    @Override
+    /*@Override
     public void onTestFailure(ITestResult result) {
         byte[] file = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
         saveScreenshots(file);
-    }
+    }*/
 
     @Override
     public void onStart(ITestContext context) {
@@ -59,5 +60,4 @@ public class Listener implements ITestListener {
             e.printStackTrace();
         }
     }
-
 }
