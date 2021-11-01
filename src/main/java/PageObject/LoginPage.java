@@ -6,7 +6,10 @@ import org.testng.Assert;
 
 public class LoginPage {
 
-    @FindBy (className = "kf-HTgR-ee339")
+    @FindBy (css = "#portal img")
+    SelenideElement closePopUpWindow;
+
+    @FindBy (css = ".kf-HccG-9fd2c div")
     SelenideElement enterButton;
 
     @FindBy (id = "email")
@@ -21,8 +24,18 @@ public class LoginPage {
     @FindBy (className = "kf-HbkZ-b0d48")
     SelenideElement icons;
 
-    @FindBy (className = "kf-HRkA-a1267")
-    SelenideElement text;
+    @FindBy (className = "kf-eBXO-2f96e")
+    SelenideElement errorText;
+
+    public LoginPage closePopUpWindow() {
+        closePopUpWindow.click();
+        return this;
+    }
+
+    public LoginPage clickLoginPage() {
+        enterButton.click();
+        return this;
+    }
 
     public LoginPage enterEmail(String email) {
         inputEmail.setValue(email);
@@ -44,8 +57,8 @@ public class LoginPage {
         return this;
     }
 
-    public LoginPage checkingText() {
-        Assert.assertEquals(text.getText(), "Войдите через сервисы:");
+    public LoginPage checkingErrorText() {
+        Assert.assertEquals(errorText.getText(), "Профиль не активирован. Нажмите ");
         return this;
     }
 }
