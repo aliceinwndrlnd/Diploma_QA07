@@ -1,4 +1,3 @@
-import static com.codeborne.selenide.Selenide.*;
 import Driver.BaseTestSelenide;
 import PageObject.LoginPage;
 import org.testng.annotations.Test;
@@ -13,12 +12,7 @@ public class Test_Kufar extends BaseTestSelenide {
                 .clickLoginPage()
                 .enterEmail("test@test.ru")
                 .enterPassword("22222")
-                .verifyIcons()
                 .clickSubmit()
                 .checkingErrorText();
     }
-
-
-
-
 }

@@ -9,7 +9,7 @@ public class LoginPage {
     @FindBy (css = "#portal img")
     SelenideElement closePopUpWindow;
 
-    @FindBy (css = ".kf-HccG-9fd2c div")
+    @FindBy (xpath = "//*[@id='header']/div[2]/div[3]//button")
     SelenideElement enterButton;
 
     @FindBy (id = "email")
@@ -18,13 +18,10 @@ public class LoginPage {
     @FindBy (id = "password")
     SelenideElement inputPassword;
 
-    @FindBy (className = "kf-cS-8bbc7 kf-cLS-c2977 kf-cLA-d9cc7 kf-cLZ-3e5d1")
+    @FindBy (xpath = "//*[@id='__next']//form/div[4]/button")
     SelenideElement submitButton;
 
-    @FindBy (className = "kf-HbkZ-b0d48")
-    SelenideElement icons;
-
-    @FindBy (className = "kf-eBXO-2f96e")
+    @FindBy (xpath = "//*[@id='__next']//form/span/div")
     SelenideElement errorText;
 
     public LoginPage closePopUpWindow() {
@@ -52,13 +49,8 @@ public class LoginPage {
         return this;
     }
 
-    public LoginPage verifyIcons() {
-        icons.isEnabled();
-        return this;
-    }
-
     public LoginPage checkingErrorText() {
-        Assert.assertEquals(errorText.getText(), "Профиль не активирован. Нажмите ");
+        Assert.assertEquals(errorText.getText(), "Профиль не активирован. Нажмите здесь, чтобы активировать его.");
         return this;
     }
 }
