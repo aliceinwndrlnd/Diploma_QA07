@@ -21,7 +21,7 @@ public class LoginPage {
     @FindBy (xpath = "//*[@id='__next']//form/div[4]/button")
     SelenideElement submitButton;
 
-    @FindBy (xpath = "//*[@id='__next']//form/span/div")
+    @FindBy (xpath = "//*[@id='__next']//span/div")
     SelenideElement errorText;
 
     public LoginPage closePopUpWindow() {
