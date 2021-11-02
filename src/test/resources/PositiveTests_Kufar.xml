@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Kufar Homepage" >
+<suite name="Positive_Tests_Kufar" >
     <parameter name="env" value="kufar"/>
-    <test name="HomePage">
+    <test name="Positive Tests">
         <classes>
             <class name="PositiveTests_Kufar"/>
         </classes>
