@@ -13,7 +13,6 @@ public class NegativeTests_Kufar extends BaseTestSelenide {
     @Test
     public void loginPageNegativeTest() { //ввод некорректных данных
         get(LoginPage.class)
-                .closePopUpWindow()
                 .clickLoginPage()
                 .enterEmail("test@test.ru")
                 .enterPassword("22222")
@@ -24,7 +23,6 @@ public class NegativeTests_Kufar extends BaseTestSelenide {
     @Test
     public void settingsPageNegativeTest() { //воспроизведение дефекта
         get(LoginPage.class)
-                .closePopUpWindow()
                 .clickLoginPage()
                 .enterEmail("AutomationTestQA@yahoo.com")
                 .enterPassword("AutomationTestQA1234")
@@ -40,7 +38,6 @@ public class NegativeTests_Kufar extends BaseTestSelenide {
     @Test
     public void uploadFileTest() { //загрузка файла (перенести в позитивные)
         get(LoginPage.class)
-                .closePopUpWindow()
                 .clickLoginPage()
                 .enterEmail("AutomationTestQA@yahoo.com")
                 .enterPassword("AutomationTestQA1234")
