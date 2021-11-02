@@ -3,7 +3,7 @@ import PageObject.HomePage;
 import PageObject.LoginPage;
 import org.testng.annotations.Test;
 
-public class Test_Kufar_Homepage extends BaseTestSelenide {
+public class PositiveTests_Kufar extends BaseTestSelenide {
     @Test
     public void homePageTest() {
         get(HomePage.class)

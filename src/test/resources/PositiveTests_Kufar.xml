@@ -4,7 +4,7 @@
     <parameter name="env" value="kufar"/>
     <test name="HomePage">
         <classes>
-            <class name="Test_Kufar_Homepage"/>
+            <class name="PositiveTests_Kufar"/>
         </classes>
     </test>
 </suite>
