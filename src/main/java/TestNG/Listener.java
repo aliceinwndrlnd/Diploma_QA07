@@ -18,8 +18,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Comparator;
 
-import static Driver.DriverCreation.getDriver;
-
 
 public class Listener implements ITestListener {
 
