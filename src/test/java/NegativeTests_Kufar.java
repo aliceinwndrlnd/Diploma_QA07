@@ -1,6 +1,6 @@
 import Driver.BaseTestSelenide;
+import PageObject.HomePage;
 import PageObject.LoginPage;
-import PageObject.ProfilePage;
 import PageObject.SettingsPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -12,6 +12,8 @@ public class NegativeTests_Kufar extends BaseTestSelenide {
 
     @Test
     public void loginPageNegativeTest() { //ввод некорректных данных
+        get(HomePage.class)
+                .сlosePopUp();
         get(LoginPage.class)
                 .clickLoginPage()
                 .enterEmail("test@test.ru")
@@ -21,7 +23,9 @@ public class NegativeTests_Kufar extends BaseTestSelenide {
     }
 
     @Test
-    public void settingsPageNegativeTest() { //воспроизведение дефекта
+    public void settingsPageNegativeTest() {//воспроизведение дефекта
+        get(HomePage.class)
+                .сlosePopUp();
         get(LoginPage.class)
                 .clickLoginPage()
                 .enterEmail("AutomationTestQA@yahoo.com")
@@ -35,21 +39,6 @@ public class NegativeTests_Kufar extends BaseTestSelenide {
                 .checkingValidationOfName();
     }
 
-    @Test
-    public void uploadFileTest() { //загрузка файла (перенести в позитивные)
-        get(LoginPage.class)
-                .clickLoginPage()
-                .enterEmail("AutomationTestQA@yahoo.com")
-                .enterPassword("AutomationTestQA1234")
-                .clickSubmit();
-        get(SettingsPage.class)
-                .clickOnPfofile()
-                .clickSettings();
-        get(ProfilePage.class)
-                .clickChooseButton()
-                .uploadImg();
-
-    }
 
     @AfterMethod
     public void closeDriver() {
