@@ -3,6 +3,7 @@ package PageObject;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class HomePage {
 
@@ -12,8 +13,8 @@ public class HomePage {
     @FindBy(xpath = "/a[@class = 'kf-ll-33e4f kf-lQm-dbfaa kf-lQq-d21e7 kf-lQN-7bbc0']")
     SelenideElement txtOnAdvt;
 
-    @FindBy(xpath = "//button[@class = 'kf-wl-33e4f kf-wuQ-ef61a kf-wQq-d21e7 kf-QheX-41fb0']")
-    SelenideElement closeAdvtBtn;
+    @FindBy (css = "#portal img")
+    SelenideElement closePopUpWindow;
 
     @FindBy(xpath = "//img[@class = 'kf-LXFO-1bc4d']")
     SelenideElement label;
@@ -99,10 +100,8 @@ public class HomePage {
     @FindBy(xpath = "//a[@class = 'kf-LYTX-d8146']")// локатор для всех эл-ов внизу сайта (Telegram - Viber)
     SelenideElement linksToSocNetOnPageDown;
 
-    public HomePage checkAndCloseAdvt() {
-        this.advtImg.shouldBe(Condition.exist);
-        txtOnAdvt.should(Condition.matchText("Ого, расскажите подробнее"));
-        closeAdvtBtn.click();
+    public HomePage сlosePopUp() {
+        closePopUpWindow.click();
         return this;
     }
 
@@ -113,12 +112,31 @@ public class HomePage {
         return this;
     }
 
-    public HomePage chooseRegion() {
+    public HomePage verifyRegionMenu() {
         regionBtn.click();
         txtAfterClickRegionBtn.should(Condition.matchText("Ваш регион"));
-        selectRegion.getSelectedValue();
-        selectDistrict.getSelectedValue();
+        return this;
+    }
+
+    public HomePage selectRegion(String index) {
+        selectRegion.selectOptionByValue(index);
+        return this;
+    }
+
+    public HomePage selectDistrict(String index) {
+        selectDistrict.selectOptionByValue(index);
+        return this;
+    }
+
+    public HomePage clickSelect() {
         selectBtn.click();
         return this;
     }
+
+    public HomePage checkMainTxtAfterSelect() {
+        Assert.assertEquals(mainText.getText(), "Все объявления в Первомайском районе Минска");
+        return this;
+    }
+
+
 }

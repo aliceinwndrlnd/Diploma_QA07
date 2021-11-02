@@ -6,9 +6,6 @@ import org.testng.Assert;
 
 public class LoginPage {
 
-    @FindBy (css = "#portal img")
-    SelenideElement closePopUpWindow;
-
     @FindBy (xpath = "//*[@id='header']/div[2]/div[3]//button")
     SelenideElement enterButton;
 
@@ -23,11 +20,6 @@ public class LoginPage {
 
     @FindBy (xpath = "//*[@id='__next']//form/span/div")
     SelenideElement errorText;
-
-    public LoginPage closePopUpWindow() {
-        closePopUpWindow.click();
-        return this;
-    }
 
     public LoginPage clickLoginPage() {
         enterButton.click();
