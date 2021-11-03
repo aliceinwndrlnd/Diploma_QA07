@@ -6,7 +6,7 @@ import PageObject.SettingsPage;
 import org.testng.annotations.Test;
 
 public class PositiveTests_Kufar extends BaseTestSelenide {
-    @Test
+    /*@Test
     public void homePageTest() {
         get(HomePage.class)
                 .сlosePopUp()
@@ -16,9 +16,9 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .selectDistrict("3")
                 .clickSelect()
                 .checkMainTxtAfterSelect();
-    }
+    }*/
 
-    @Test
+    @Test (priority = 1)
     public void uploadFileTest() { //загрузка файла (допилить)
         get(HomePage.class)
                 .сlosePopUp();
@@ -32,7 +32,7 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .clickSettings();
         get(ProfilePage.class)
                 .clickChooseButton()
-                .uploadImg();
-
+                .uploadImg()
+                .checkImageAvailability();
     }
 }
