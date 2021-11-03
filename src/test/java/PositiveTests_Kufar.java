@@ -3,10 +3,13 @@ import PageObject.HomePage;
 import PageObject.LoginPage;
 import PageObject.ProfilePage;
 import PageObject.SettingsPage;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+
 public class PositiveTests_Kufar extends BaseTestSelenide {
-    /*@Test
+    @Test
     public void homePageTest() {
         get(HomePage.class)
                 .сlosePopUp()
@@ -16,7 +19,7 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .selectDistrict("3")
                 .clickSelect()
                 .checkMainTxtAfterSelect();
-    }*/
+    }
 
     @Test (priority = 1)
     public void uploadFileTest() { //загрузка файла (допилить)
@@ -35,4 +38,10 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .uploadImg()
                 .checkImageAvailability();
     }
+
+    @AfterMethod
+    public void closeDriver() {
+        closeWebDriver();
+    }
 }
+
