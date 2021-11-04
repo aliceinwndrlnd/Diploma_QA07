@@ -18,7 +18,7 @@ public class SettingsPage {
     @FindBy (xpath = "//*[@id='change']")
     SelenideElement saveButton;
 
-    public SettingsPage clickOnPfofile() {
+    public SettingsPage clickOnProfile() {
         profile.click();
         return this;
     }

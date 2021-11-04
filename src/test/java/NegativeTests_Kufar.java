@@ -37,7 +37,7 @@ public class NegativeTests_Kufar extends BaseTestSelenide {
                 .enterPassword("AutomationTestQA1234")
                 .clickSubmit();
         get(SettingsPage.class)
-                .clickOnPfofile()
+                .clickOnProfile()
                 .clickSettings()
                 .enterName("илооллллллллллллллисвылотсатцуолаиииииииииииииииииииииииииииасилуцотвлуцо")
                 .clickSave()
@@ -52,7 +52,7 @@ public class NegativeTests_Kufar extends BaseTestSelenide {
                 .enterPassword("AutomationTestQA1234")
                 .clickSubmit();
         get(SettingsPage.class)
-                .clickOnPfofile()
+                .clickOnProfile()
                 .clickSettings();
         get(RegistrationDataPage.class)
                 .registrationDataPageClick()
