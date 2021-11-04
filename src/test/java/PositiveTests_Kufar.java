@@ -1,11 +1,23 @@
 import Driver.BaseTestSelenide;
+import PageObject.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import PageObject.HomePage;
 import PageObject.LoginPage;
 import PageObject.ProfilePage;
 import PageObject.SettingsPage;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+
 public class PositiveTests_Kufar extends BaseTestSelenide {
+
+    @BeforeMethod
+    public void precondition() {
+        get(HomePage.class)
+                .сlosePopUp();
+    }
+
     @Test
     public void homePagePositiveTest() {
         get(HomePage.class)
@@ -19,7 +31,7 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
     }
 
     @Test
-    public void uploadFileTest() { //загрузка файла (допилить)
+    public void uploadFileTest() {
         get(HomePage.class)
                 .сlosePopUp();
         get(LoginPage.class)
@@ -28,11 +40,25 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .enterPassword("AutomationTestQA1234")
                 .clickSubmit();
         get(SettingsPage.class)
-                .clickOnPfofile()
+                .clickOnProfile()
                 .clickSettings();
         get(ProfilePage.class)
-                .clickChooseButton()
-                .uploadImg();
-
+                .uploadImg()
+                .checkImageAvailability();
     }
-}
+
+    @Test
+    public void carCheckTest() {
+        get(CarCheckPage.class)
+                .clickCarCheckPage()
+                .verifyTitle()
+                .enterVinOfCar("11111111111111111")
+                .submitClick();
+        }
+
+    @AfterMethod
+    public void closeDriver() {
+        closeWebDriver();
+        }
+    }
+

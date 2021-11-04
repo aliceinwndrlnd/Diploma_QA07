@@ -7,12 +7,6 @@ import org.testng.Assert;
 
 public class HomePage {
 
-    @FindBy(xpath = "//img[@class = 'kf-QhSk-3eb10']")
-    SelenideElement advtImg;
-
-    @FindBy(xpath = "/a[@class = 'kf-ll-33e4f kf-lQm-dbfaa kf-lQq-d21e7 kf-lQN-7bbc0']")
-    SelenideElement txtOnAdvt;
-
     @FindBy (css = "#portal img")
     SelenideElement closePopUpWindow;
 
@@ -101,7 +95,8 @@ public class HomePage {
     SelenideElement linksToSocNetOnPageDown;
 
     public HomePage сlosePopUp() {
-        closePopUpWindow.click();
+        closePopUpWindow
+                .click();
         return this;
     }
 
