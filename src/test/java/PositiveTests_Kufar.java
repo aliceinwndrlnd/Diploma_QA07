@@ -3,18 +3,21 @@ import PageObject.HomePage;
 import PageObject.LoginPage;
 import PageObject.ProfilePage;
 import PageObject.SettingsPage;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+
 public class PositiveTests_Kufar extends BaseTestSelenide {
 
-    @BeforeMethod
+@BeforeMethod
     public void precondition() {
         get(HomePage.class)
                 .сlosePopUp();
     }
 
-    @Test
+@Test
     public void homePageTest() {
         get(HomePage.class)
                 .verifyHomePage()
@@ -25,7 +28,7 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .checkMainTxtAfterSelect();
     }
 
-    @Test
+    @Test (priority = 1)
     public void uploadFileTest() { //загрузка файла (допилить)
         get(LoginPage.class)
                 .clickLoginPage()
@@ -36,8 +39,13 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .clickOnPfofile()
                 .clickSettings();
         get(ProfilePage.class)
-                .clickChooseButton()
-                .uploadImg();
+                .uploadImg()
+                .checkImageAvailability();
+    }
 
+    @AfterMethod
+    public void closeDriver() {
+        closeWebDriver();
     }
 }
+
