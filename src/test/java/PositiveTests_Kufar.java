@@ -21,7 +21,6 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
     @Test
     public void homePageTest() {
         get(HomePage.class)
-                .сlosePopUp()
                 .verifyHomePage()
                 .verifyRegionMenu()
                 .selectRegion("1")
@@ -32,8 +31,6 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
 
     @Test
     public void uploadFileTest() {
-        get(HomePage.class)
-                .сlosePopUp();
         get(LoginPage.class)
                 .clickLoginPage()
                 .enterEmail("AutomationTestQA@yahoo.com")
