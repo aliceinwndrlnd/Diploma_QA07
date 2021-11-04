@@ -3,14 +3,11 @@ import PageObject.HomePage;
 import PageObject.LoginPage;
 import PageObject.ProfilePage;
 import PageObject.SettingsPage;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-
-import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class PositiveTests_Kufar extends BaseTestSelenide {
     @Test
-    public void homePagePositiveTest() {
+    public void homePageTest() {
         get(HomePage.class)
                 .сlosePopUp()
                 .verifyHomePage()
@@ -38,5 +35,4 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .uploadImg();
 
     }
-
 }
