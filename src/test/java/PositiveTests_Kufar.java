@@ -11,13 +11,13 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class PositiveTests_Kufar extends BaseTestSelenide {
 
-    @BeforeMethod
+@BeforeMethod
     public void precondition() {
         get(HomePage.class)
                 .сlosePopUp();
     }
 
-    @Test
+@Test
     public void homePageTest() {
         get(HomePage.class)
                 .verifyHomePage()
@@ -27,8 +27,8 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .clickSelect()
                 .checkMainTxtAfterSelect();
     }
-
-    @Test
+  
+@Test
     public void uploadFileTest() {
         get(LoginPage.class)
                 .clickLoginPage()
@@ -43,8 +43,9 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .checkImageAvailability();
     }
 
-    @AfterMethod
+ @AfterMethod
     public void closeDriver() {
         closeWebDriver();
     }
 }
+
