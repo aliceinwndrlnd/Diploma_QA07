@@ -52,6 +52,7 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
 
     @AfterMethod
     public void closeDriver() {
+
         closeWebDriver();
     }
 }
