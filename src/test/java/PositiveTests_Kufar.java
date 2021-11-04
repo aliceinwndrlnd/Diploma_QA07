@@ -27,9 +27,9 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .clickSelect()
                 .checkMainTxtAfterSelect();
     }
-
-    @Test (priority = 1)
-    public void uploadFileTest() { //загрузка файла (допилить)
+  
+@Test
+    public void uploadFileTest() {
         get(LoginPage.class)
                 .clickLoginPage()
                 .enterEmail("AutomationTestQA@yahoo.com")
@@ -43,7 +43,7 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .checkImageAvailability();
     }
 
-    @AfterMethod
+ @AfterMethod
     public void closeDriver() {
         closeWebDriver();
     }
