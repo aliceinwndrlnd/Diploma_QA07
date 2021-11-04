@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class PositiveTests_Kufar extends BaseTestSelenide {
+
     @Test
     public void homePageTest() {
         get(HomePage.class)
@@ -34,7 +35,6 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .clickOnPfofile()
                 .clickSettings();
         get(ProfilePage.class)
-                .clickChooseButton()
                 .uploadImg()
                 .checkImageAvailability();
     }
