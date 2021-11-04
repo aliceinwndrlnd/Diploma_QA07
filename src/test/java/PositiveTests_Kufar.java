@@ -8,15 +8,17 @@ import PageObject.ProfilePage;
 import PageObject.SettingsPage;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+
 public class PositiveTests_Kufar extends BaseTestSelenide {
 
-  @BeforeMethod
+    @BeforeMethod
     public void precondition() {
         get(HomePage.class)
                 .сlosePopUp();
     }
 
-  @Test
+    @Test
     public void homePageTest() {
         get(HomePage.class)
                 .сlosePopUp()
@@ -27,12 +29,12 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .clickSelect()
                 .checkMainTxtAfterSelect();
     }
-   
-   @Test
+
+    @Test
     public void uploadFileTest() {
-         get(HomePage.class)
+        get(HomePage.class)
                 .сlosePopUp();
-         get(LoginPage.class)
+        get(LoginPage.class)
                 .clickLoginPage()
                 .enterEmail("AutomationTestQA@yahoo.com")
                 .enterPassword("AutomationTestQA1234")
@@ -41,9 +43,10 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .clickOnProfile()
                 .clickSettings();
         get(ProfilePage.class)
-                .clickChooseButton()
-                .uploadImg();
-    
+                .uploadImg()
+                .checkImageAvailability();
+    }
+
     @Test
     public void carCheckTest() {
         get(CarCheckPage.class)
@@ -51,11 +54,11 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .verifyTitle()
                 .enterVinOfCar("11111111111111111")
                 .submitClick();
-
-    }
+        }
 
     @AfterMethod
     public void closeDriver() {
         closeWebDriver();
+        }
     }
-}
+
