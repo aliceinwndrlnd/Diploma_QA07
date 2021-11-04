@@ -3,8 +3,11 @@ import PageObject.HomePage;
 import PageObject.LoginPage;
 import PageObject.ProfilePage;
 import PageObject.SettingsPage;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class PositiveTests_Kufar extends BaseTestSelenide {
 
@@ -26,7 +29,7 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
     }
 
     @Test
-    public void uploadFileTest() { //загрузка файла (допилить)
+    public void uploadFileTest() {
         get(LoginPage.class)
                 .clickLoginPage()
                 .enterEmail("AutomationTestQA@yahoo.com")
@@ -36,8 +39,12 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .clickOnPfofile()
                 .clickSettings();
         get(ProfilePage.class)
-                .clickChooseButton()
-                .uploadImg();
+                .uploadImg()
+                .checkImageAvailability();
+    }
 
+    @AfterMethod
+    public void closeDriver() {
+        closeWebDriver();
     }
 }
