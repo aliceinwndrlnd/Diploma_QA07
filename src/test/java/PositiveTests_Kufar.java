@@ -4,16 +4,22 @@ import PageObject.LoginPage;
 import PageObject.ProfilePage;
 import PageObject.SettingsPage;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class PositiveTests_Kufar extends BaseTestSelenide {
 
-    @Test
+@BeforeMethod
+    public void precondition() {
+        get(HomePage.class)
+                .сlosePopUp();
+    }
+
+@Test
     public void homePageTest() {
         get(HomePage.class)
-                .сlosePopUp()
                 .verifyHomePage()
                 .verifyRegionMenu()
                 .selectRegion("1")
@@ -24,8 +30,6 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
 
     @Test (priority = 1)
     public void uploadFileTest() { //загрузка файла (допилить)
-        get(HomePage.class)
-                .сlosePopUp();
         get(LoginPage.class)
                 .clickLoginPage()
                 .enterEmail("AutomationTestQA@yahoo.com")
