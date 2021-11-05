@@ -30,7 +30,7 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
     }
 
     @Test
-    public void uploadFileTest() {
+    public void uploadFileTest() { //тест на загрузку файла
         get(LoginPage.class)
                 .clickLoginPage()
                 .enterEmail("AutomationTestQA@yahoo.com")
@@ -45,11 +45,12 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
     }
 
     @Test
-    public void carCheckTest() {
+    public void carCheckTest() { //проверка на граничные значения
         get(CarCheckPage.class)
                 .clickCarCheckPage()
+                .switchToAnotherWindow("Проверка авто по ВИН на Куфаре")
                 .verifyTitle()
-                .enterVinOfCar("11111111111111111")
+                .enterVinOfCar("111111111711111111")
                 .submitClick();
         }
 
