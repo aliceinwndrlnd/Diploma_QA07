@@ -10,7 +10,7 @@ public class HomePage {
     @FindBy (css = "#portal img")
     SelenideElement closePopUpWindow;
 
-    @FindBy(xpath = "//img[@class = 'kf-LXFO-1bc4d']")
+    @FindBy(xpath = "//img[@class = 'kf-LvPY-4462d']")
     SelenideElement label;
 
     @FindBy(xpath = "//a[@data-name = 'header-generalist-to-realty']")
@@ -22,19 +22,19 @@ public class HomePage {
     @FindBy(id = "searchbar-main")
     SelenideElement searchField;
 
-    @FindBy(css = ".kf-LNVG-6f660")
+    @FindBy(css = ".kf-LbPG-84d9a")
     SelenideElement regionBtn;
 
-    @FindBy(xpath = "//span[@class = 'kf-CnnV-6af06']")
+    @FindBy(xpath = "//span[@class = 'kf-LbPk-7dca8']")
     SelenideElement txtAfterClickRegionBtn;
 
-    @FindBy(xpath = "//span[@class = 'kf-CnnV-6af06']")
+    @FindBy(xpath = "//select[@name = 'rgn']")
     SelenideElement selectRegion;
 
     @FindBy(xpath = "//select[@name = 'ar']")
     SelenideElement selectDistrict;
 
-    @FindBy(xpath = "//button[@class = 'kf-wl-33e4f kf-wQm-dbfaa kf-wQq-d21e7']")
+    @FindBy(xpath = "//button[@class = 'kf-wc-df57b kf-wLV-a96ca kf-wLE-75795']")
     SelenideElement selectBtn;
 
     @FindBy(xpath = "//button[@appearance = 'primary']")
@@ -43,7 +43,7 @@ public class HomePage {
     @FindBy(xpath = "//button[@class = 'kf-cS-8bbc7 kf-cLR-0aa8d']")
     SelenideElement btnToLog;
 
-    @FindBy(xpath = "//h1[@class = 'kf-Qzz-9d2a4']")
+    @FindBy(xpath = "//h1[@class = 'kf-LrnH-9c12d']")
     SelenideElement mainText;
 
     @FindBy(xpath = "//button[@class = 'kf-eYS-8bbc7']")
@@ -129,9 +129,12 @@ public class HomePage {
     }
 
     public HomePage checkMainTxtAfterSelect() {
-        Assert.assertEquals(mainText.getText(), "Все объявления в Первомайском районе Минска");
+        mainText.should(Condition.matchText("Все объявления в Первомайском районе Минска"));
         return this;
     }
 
-
+    public HomePage goToRealtyPage() {
+        realtyBtn.click();
+        return this;
+    }
 }
