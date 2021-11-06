@@ -19,12 +19,12 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
     }
 
     @Test
-    public void homePageTest() {
+    public void chooseRgnOnHomePageTest() { //тест без входа в профиль
         get(HomePage.class)
                 .verifyHomePage()
                 .verifyRegionMenu()
-                .selectRegion("1")
-                .selectDistrict("3")
+                .selectRegion("7")
+                .selectDistrict("24")
                 .clickSelect()
                 .checkMainTxtAfterSelect();
     }
