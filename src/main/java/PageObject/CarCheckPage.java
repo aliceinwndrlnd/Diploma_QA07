@@ -8,7 +8,7 @@ import static com.codeborne.selenide.WebDriverRunner.driver;
 
 public class CarCheckPage {
 
-    @FindBy (css = ".swiper-slide.kf-Fnk-ad9fc.swiper-slide-visible.swiper-slide-next span")
+    @FindBy (css = "a[href$='vin_gorizontal&utm_term=menubutton")
     SelenideElement carCheckPage;
 
     @FindBy (css = ".center-wrapper h1")
