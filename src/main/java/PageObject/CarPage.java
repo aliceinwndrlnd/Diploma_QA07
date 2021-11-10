@@ -26,7 +26,7 @@ public class CarPage {
     @FindBy(xpath = "//select[@id = 'sort']")
     SelenideElement selectFilter;
 
-    @FindBy(xpath = "//div[@class = 'kf-xFxR-17694']")
+    @FindBy(xpath = "//div[@class = 'kf-aRN-75d05']")
     SelenideElement filter;
 
     @FindBy(xpath = "//div[@style = 'cursor:pointer']")

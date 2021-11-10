@@ -9,7 +9,7 @@ public class RealtyPage {
     @FindBy(xpath = "//a[@class='kf-mL-ef9bf']")
     SelenideElement title;
 
-    @FindBy(xpath = "//div[@class='kf-EwG-3d93c']")
+    @FindBy(xpath = "//div[@class='kf-AFc-9b70b']")
     SelenideElement subTitle;
 
     @FindBy(xpath = "//div[@class='kf-vWoC-7761a']")
@@ -22,7 +22,7 @@ public class RealtyPage {
     SelenideElement closeBtn;
 
     public RealtyPage verifyRealtyPage() {
-        //title.should(Condition.matchText("Недвижимость")); // может уведомление перекрывает
+        title.should(Condition.matchText("Недвижимость")); // может уведомление перекрывает
         subTitle.should(Condition.matchText("Листай, выбирай, переезжай!"));
         return this;
     }
