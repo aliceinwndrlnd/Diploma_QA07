@@ -21,7 +21,7 @@ public class HomePage {
     @FindBy(id = "searchbar-main")
     SelenideElement searchField;
 
-    @FindBy(css = ".kf-LbPG-84d9a")
+    @FindBy(css = ".kf-LZmS-6fe98")
     SelenideElement regionBtn;
 
     @FindBy(xpath = "//span[@class = 'kf-LbPk-7dca8']")
