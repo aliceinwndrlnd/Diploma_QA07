@@ -9,8 +9,8 @@ public class HomePage {
     @FindBy (css = "#portal img")
     SelenideElement closePopUpWindow;
 
-    @FindBy(xpath = "//img[@class = 'kf-LvPY-4462d']")
-    SelenideElement label;
+    @FindBy(css = "#header img")
+    SelenideElement labels;
 
     @FindBy(xpath = "//a[@data-name = 'header-generalist-to-realty']")
     SelenideElement realtyBtn;
@@ -21,10 +21,10 @@ public class HomePage {
     @FindBy(id = "searchbar-main")
     SelenideElement searchField;
 
-    @FindBy(css = "button.kf-QNOz-80328") // .kf-LZmS-6fe98
+    @FindBy(css = "button.kf-QNOz-80328")
     SelenideElement regionBtn;
 
-    @FindBy(xpath = "//span[text()='Ваш регион']") // xpath = "//span[@class = 'kf-LbPk-7dca8']"
+    @FindBy(xpath = "//span[text()='Ваш регион']")
     SelenideElement txtAfterClickRegionBtn;
 
     @FindBy(xpath = "//select[@name = 'rgn']")
@@ -33,10 +33,10 @@ public class HomePage {
     @FindBy(xpath = "//select[@name = 'ar']")
     SelenideElement selectDistrict;
 
-    @FindBy(xpath = "//button[text()='Выбрать']") //xpath = //button[@class = 'kf-wc-df57b kf-wLV-a96ca kf-wLE-75795']
+    @FindBy(xpath = "//button[text()='Выбрать']")
     SelenideElement selectBtn;
 
-    @FindBy(css = "h1.kf-QSeV-5c87d") // xpath = "//h1[@class = 'kf-LnEa-0743e']"
+    @FindBy(css = "h1.kf-QSeV-5c87d")
     SelenideElement mainText;
 
     public HomePage сlosePopUp() {
@@ -46,7 +46,7 @@ public class HomePage {
     }
 
     public HomePage verifyHomePage() {
-        label.isDisplayed();
+        labels.isEnabled();
         searchField.isEnabled();
         mainText.should(Condition.matchText("Все объявления в Беларуси"));
         return this;
