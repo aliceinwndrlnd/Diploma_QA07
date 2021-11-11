@@ -21,10 +21,10 @@ public class HomePage {
     @FindBy(id = "searchbar-main")
     SelenideElement searchField;
 
-    @FindBy(css = ".kf-LZmS-6fe98")
+    @FindBy(css = ".kf-UOWm-e610f.kf-UOcV-893b8 > button") // .kf-LZmS-6fe98
     SelenideElement regionBtn;
 
-    @FindBy(xpath = "//span[@class = 'kf-LbPk-7dca8']")
+    @FindBy(css = "span.kf-UOcb-c661a") // xpath = "//span[@class = 'kf-LbPk-7dca8']"
     SelenideElement txtAfterClickRegionBtn;
 
     @FindBy(xpath = "//select[@name = 'rgn']")
@@ -33,10 +33,10 @@ public class HomePage {
     @FindBy(xpath = "//select[@name = 'ar']")
     SelenideElement selectDistrict;
 
-    @FindBy(xpath = "//button[@class = 'kf-wc-df57b kf-wLV-a96ca kf-wLE-75795']")
+    @FindBy(css = "button.kf-QH-ef4dd.kf-QUe-bf782.kf-QUK-32bf8") //xpath = //button[@class = 'kf-wc-df57b kf-wLV-a96ca kf-wLE-75795']
     SelenideElement selectBtn;
 
-    @FindBy(xpath = "//h1[@class = 'kf-LnEa-0743e']")
+    @FindBy(css = ".kf-XXAk-8cee0 h1") // xpath = "//h1[@class = 'kf-LnEa-0743e']"
     SelenideElement mainText;
 
     public HomePage сlosePopUp() {
