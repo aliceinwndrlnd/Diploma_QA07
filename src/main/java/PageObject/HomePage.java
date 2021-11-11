@@ -83,7 +83,7 @@ public class HomePage {
         return this;
     }
 
-    public HomePage goToAutoPage() {
+    public HomePage goToCarPage() {
         autoBtn.click();
         return this;
     }
