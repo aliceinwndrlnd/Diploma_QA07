@@ -1,5 +1,7 @@
 import Driver.BaseTestSelenide;
 import PageObject.*;
+import PageObject.Enum.AudiCars;
+import PageObject.Enum.Car;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import PageObject.HomePage;
@@ -46,7 +48,7 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
     }
 
     @Test
-    public void addCarInLiked() { //тест со входом в профиль на добавление объявления в избранные
+    public void entityTest() { //тест со входом в профиль на добавление и удаление объявления в избранные
         get(HomePage.class)
                 .verifyHomePage();
         get(LoginPage.class)
@@ -55,42 +57,13 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .enterPassword("AutomationTestQA1234")
                 .clickSubmit();
         get(HomePage.class)
-                .goToAutoPage();
+                .goToCarPage();
         get(CarPage.class)
                 .verifyCarPage()
-                .selectCarBrand("category_2010.mark_audi")
-                .selectFilter("prc.d") // добавила также фильтрацию, чтобы самые дорогие машины сначала были, т.к. список не такой меняющийся получается
-                .scrollToCars() // не уверена, что нужен, но для того, чтобы прокрутить страницу до самих объявлений машин
-                .selectCar(1);
-        get(CarCheckPage.class)
-                .switchToAnotherWindow("Купить  3.0 л, Минск, С пробегом, 48100 км., Бензин, Автомат по цене 206 683 р. на Куфар Авто");
-        get(CarPage.class)
+                .moveToAudiCars(AudiCars.AUDI_CARS)
+                .clickOnCar(Car.CAR)
                 .addCarToLiked()
-                .verifyCarInLiked("Audi Q8 55 TFSI quattro S line");
-    }
-
-    @Test
-    public void deleteCarFromLiked() {
-        get(HomePage.class)
-                .verifyHomePage();
-        get(LoginPage.class)
-                .clickLoginPage()
-                .enterEmail("AutomationTestQA@yahoo.com")
-                .enterPassword("AutomationTestQA1234")
-                .clickSubmit();
-        get(HomePage.class)
-                .goToAutoPage();
-        get(CarPage.class)
-                .verifyCarPage()
-                .selectCarBrand("category_2010.mark_audi")
-                .selectFilter("prc.d")
-                .scrollToCars()
-                .selectCar(1);
-        get(CarCheckPage.class)
-                .switchToAnotherWindow("Купить  3.0 л, Минск, С пробегом, 48100 км., Бензин, Автомат по цене 206 683 р. на Куфар Авто");
-        get(CarPage.class)
-                .addCarToLiked()
-                .verifyCarInLiked("Audi Q8 55 TFSI quattro S line")
+                .verifyCarInLiked()
                 .deleteCarFromLiked()
                 .verifyEmptyLiked();
     }
