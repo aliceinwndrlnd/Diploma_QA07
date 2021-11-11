@@ -6,30 +6,27 @@ import org.openqa.selenium.support.FindBy;
 
 public class RealtyPage {
 
-    @FindBy(xpath = "//a[@class='kf-mL-ef9bf']")
+    @FindBy(xpath = "//a[contains(text(),'Недвижимость')]")
     SelenideElement title;
 
-    @FindBy(xpath = "//div[@class='kf-AFc-9b70b']")
+    @FindBy(xpath = "//h2[contains(text(),'Листай, выбирай, переезжай!')]")
     SelenideElement subTitle;
 
-    @FindBy(xpath = "//div[@class='kf-vWoC-7761a']")
-    SelenideElement ring;
-
-    @FindBy(xpath = "//img[@alt='notification-no-result']")
+    @FindBy(xpath = "//img[@alt='notification_icon']")
     SelenideElement imgRing;
 
-    @FindBy(xpath = "//button[@class='kf-QaQF-9bb7d kf-QavG-6cdf8']")
+    @FindBy(xpath = "//button[contains(text(),'Закрыть')]")
     SelenideElement closeBtn;
 
     public RealtyPage verifyRealtyPage() {
-        title.should(Condition.matchText("Недвижимость")); // может уведомление перекрывает
+        title.should(Condition.matchText("Недвижимость"));
         subTitle.should(Condition.matchText("Листай, выбирай, переезжай!"));
         return this;
     }
 
     public RealtyPage identifyNoticeWindow() {
-        ring.click();
-        imgRing.isDisplayed();
+        imgRing.click();
+        imgRing.isEnabled();
         closeBtn.click();
         return this;
     }
