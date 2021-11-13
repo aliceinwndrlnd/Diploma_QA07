@@ -24,7 +24,7 @@ public class RegistrationDataPage {
     @FindBy(id = "confirmPassword")
     SelenideElement inputConfirmPassword;
 
-    @FindBy(css = "span.text.kf-ufk-17ca9 span")
+    @FindBy(xpath = "//span[contains(text(), 'Пароль не должен ')]")
     SelenideElement errorText;
 
     public RegistrationDataPage registrationDataPageClick(){
