@@ -2,6 +2,7 @@ import Driver.BaseTestSelenide;
 import PageObject.*;
 import PageObject.Enum.AudiCars;
 import PageObject.Enum.Car;
+import jdk.jfr.Description;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import PageObject.HomePage;
@@ -20,8 +21,10 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .сlosePopUp();
     }
 
+
+    @Description("Test to validate select fields")
     @Test
-    public void chooseRgnOnHomePageTest() { //тест без входа в профиль, выбираю Минск, Первомайский район
+    public void chooseRgnOnHomePageTest() {
         get(HomePage.class)
                 .verifyHomePage()
                 .verifyRegionMenu()
@@ -31,8 +34,17 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .checkMainTxtAfterSelect("Все объявления в Первомайском районе Минска");
     }
 
+    @Description("PopUp Test")
     @Test
-    public void identifyNoticeWindowTest() { //тест cо входом в профиль, проверяю наличие окна с уведомлениями
+    public void checkingPopUpTest() {
+        get(HomePage.class)
+                .checkPopUpWindow()
+                .closeSecondPopUp();
+    }
+
+    @Description("Dialog display Test")
+    @Test
+    public void identifyNoticeWindowTest() {
         get(HomePage.class)
                 .verifyHomePage();
         get(LoginPage.class)
@@ -47,8 +59,9 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .identifyNoticeWindow();
     }
 
+    @Description("Entity creation and deletion test")
     @Test
-    public void entityTest() { //тест со входом в профиль на добавление и удаление объявления в избранные
+    public void entityTest() {
         get(HomePage.class)
                 .verifyHomePage();
         get(LoginPage.class)
@@ -68,12 +81,14 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .verifyEmptyLiked();
     }
 
+
+    @Description("File Uploader Test")
     @Test
-    public void uploadFileTest() { //тест на загрузку файла
+    public void uploadFileTest() {
         get(LoginPage.class)
                 .clickLoginPage()
-                .enterEmail("AutomationTestQA@yahoo.com")
-                .enterPassword("AutomationTestQA1234")
+                .enterEmail("email")
+                .enterPassword("password")
                 .clickSubmit();
         get(SettingsPage.class)
                 .clickOnProfile()
@@ -83,8 +98,9 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .checkImageAvailability();
     }
 
+    @Description("Test for checking the input field for boundary values")
     @Test
-    public void carCheckTest() { //проверка на граничные значения
+    public void carCheckTest() {
         get(CarCheckPage.class)
                 .clickCarCheckPage()
                 .switchToAnotherWindow("Проверка авто по ВИН на Куфаре")
