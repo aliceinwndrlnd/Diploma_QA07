@@ -1,9 +1,8 @@
-import com.google.gson.JsonObject;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.parsing.Parser;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 import static io.restassured.RestAssured.baseURI;
 
@@ -18,11 +17,9 @@ public class APiTests {
 
     @Test
     public void securityPage() {
-        String endpoint = "api/search/items-search/v1/engine/v1/search/rendered?cat=2060&sort=lst.d&typ=sell&size=8&oph=1&lang=ru";
+        RestAssured.registerParser("text/html", Parser.JSON);
+        String endpoint = "/api/search/items-search/v1/engine/v1/search/rendered?cat=2010&sort=lst.d&typ=sell&size=8&oph=1&cnd=2&lang=ru";
         given().when().get(endpoint).then().statusCode(200);
-
-
-
-
+        given().contentType(ContentType.JSON).when().get(endpoint).then().assertThat().contentType("text/html; charset=utf-8");
     }
 }
