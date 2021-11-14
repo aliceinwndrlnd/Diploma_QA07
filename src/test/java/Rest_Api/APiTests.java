@@ -1,11 +1,13 @@
 package Rest_Api;
 
+import Rest_Api.AdvtInLiked.Ad;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.testng.annotations.BeforeTest;
-
+import io.restassured.response.Response;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.baseURI;
 
@@ -16,16 +18,30 @@ public class APiTests {
     Gson gson = new Gson();
     ObjectMapper mapper = new ObjectMapper();
     Login login = new Login() {{
-        setLogin("AutomationTestQA@yahoo.com");
+        setEmail("AutomationTestQA@yahoo.com");
         setPassword("AutomationTestQA1234");
     }};
 
-    @BeforeTest
-    public void preconditions() throws JsonProcessingException {
+
+    @Test
+    public void authorization() throws JsonProcessingException {
         baseURI = "https://kufar.by/";
         String response = given().when().body(mapper.writeValueAsString(login))
-                .and().header("Content-Type", "application/json").when().post("l/api/login/v2/auth/signin?token_type=user").getBody().asPrettyString();
+                .and().header("Content-Type", "application/json").when()
+                .post("l/api/login/v2/auth/signin?token_type=user").getBody().asPrettyString();
         JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
         token = jsonObject.get("token").getAsString();
+    }
+
+    @Test
+    public void checkAdvtInLiked() {
+        baseURI = "https://cre-api-v2.kufar.by/";
+        String endpoint = "items-search/v1/engine/v1/search/rendered-paginated?size=32&aid=v.or:141441869";
+        Response response = given().when().header("Authorization", "Bearer " + token)
+                .and().header("Content-Type", "application/json")
+                .get(endpoint);
+        Assert.assertEquals(response.statusCode(), 200);
+        Assert.assertEquals(response.as(Ad.class).getAdLink(), "https://auto.kufar.by/vi/141441869");
+        Assert.assertEquals(response.as(Ad.class).getCurrency(), "USD");
     }
 }
