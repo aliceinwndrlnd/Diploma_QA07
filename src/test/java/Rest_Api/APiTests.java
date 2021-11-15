@@ -1,6 +1,6 @@
 package Rest_Api;
 
-import Rest_Api.AdvtInLiked.AdvtInLiked;
+import Rest_Api.AdvtCarInLiked.AdvtInLiked;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -39,7 +39,7 @@ public class APiTests {
     }
 
     @Test
-    public void checkAdvtInLiked() {
+    public void checkAdvtCarInLiked() {
         baseURI = "https://cre-api-v2.kufar.by/";
         String endpoint = "items-search/v1/engine/v1/search/rendered-paginated?size=32&aid=v.or:141441869";
         Response response = given().when().header("Authorization", "Bearer " + token)
@@ -48,6 +48,19 @@ public class APiTests {
         Assert.assertEquals(response.statusCode(), 200);
         Assert.assertEquals(response.as(AdvtInLiked.class).getAds()[0].getAd_link(), "https://auto.kufar.by/vi/141441869");
         Assert.assertEquals(response.as(AdvtInLiked.class).getAds()[0].getCurrency(), "USD");
+    }
+
+    @Test
+    public void checkAdvtRealtyInLiked() {
+        baseURI = "https://cre-api-v2.kufar.by/";
+        String endpoint = "items-search/v1/engine/v1/search/rendered-paginated?size=32&aid=v.or:123514239";
+        Response response = given().when().header("Authorization", "Bearer " + token)
+                .and().header("Content-Type", "application/json")
+                .get(endpoint);
+        Assert.assertEquals(response.statusCode(), 200);
+        Assert.assertEquals(response.as(Rest_Api.AdvtRealtyInLiked.AdvtInLiked.class).getAds()[0].getAccount_id(), 5994810);
+        Assert.assertEquals(response.as(Rest_Api.AdvtRealtyInLiked.AdvtInLiked.class).getAds()[0].getAd_id(), 123514239);
+        Assert.assertEquals(response.as(Rest_Api.AdvtRealtyInLiked.AdvtInLiked.class).getAds()[0].getSubject(), "Жилой комплекс «Парк Челюскинцев»");
     }
 
     @Test

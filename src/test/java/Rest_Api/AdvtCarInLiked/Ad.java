@@ -1,8 +1,7 @@
-package Rest_Api.AdvtInLiked;
+package Rest_Api.AdvtCarInLiked;
 
 import lombok.Data;
 
-import java.time.OffsetDateTime;
 import java.util.Date;
 
 

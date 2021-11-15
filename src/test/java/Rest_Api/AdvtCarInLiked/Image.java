@@ -1,4 +1,4 @@
-package Rest_Api.AdvtInLiked;
+package Rest_Api.AdvtCarInLiked;
 
 import lombok.Data;
 

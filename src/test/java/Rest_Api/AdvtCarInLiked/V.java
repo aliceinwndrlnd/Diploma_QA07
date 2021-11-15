@@ -1,8 +1,6 @@
-package Rest_Api.AdvtInLiked;
+package Rest_Api.AdvtCarInLiked;
 
 import lombok.Data;
-
-import java.io.IOException;
 
 @Data
 public class V {
