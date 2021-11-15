@@ -7,3 +7,4 @@ public class Image {
     private String id;
     private boolean yams_storage;
 }
+
