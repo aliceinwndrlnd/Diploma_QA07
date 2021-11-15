@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
+import lombok.extern.log4j.Log4j2;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,6 +14,7 @@ import static io.restassured.RestAssured.baseURI;
 
 import static io.restassured.RestAssured.*;
 
+@Log4j2
 public class APiTests {
     String token;
     String errorText;
