@@ -23,7 +23,6 @@ public class APiTests {
         setPassword("AutomationTestQA1234");
     }};
 
-
     @Test
     public void authorization() throws JsonProcessingException {
         baseURI = "https://www.kufar.by/";
