@@ -1,9 +1,13 @@
 package Rest_Api;
 
+import Rest_Api.AdvtInLiked.Ad;
+import Rest_Api.AdvtInLiked.AdvtInLiked;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.restassured.response.Response;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.baseURI;
@@ -38,7 +42,7 @@ public class APiTests {
                 .and().header("Content-Type", "application/json")
                 .get(endpoint);
         Assert.assertEquals(response.statusCode(), 200);
-        Assert.assertEquals(response.as(Ad.class).getAdLink(), "https://auto.kufar.by/vi/141441869");
-        Assert.assertEquals(response.as(Ad.class).getCurrency(), "USD");
+        Assert.assertEquals(response.as(AdvtInLiked.class).getAds()[0].getAd_link(), "https://auto.kufar.by/vi/141441869");
+        Assert.assertEquals(response.as(AdvtInLiked.class).getAds()[0].getCurrency(), "USD");
     }
 }

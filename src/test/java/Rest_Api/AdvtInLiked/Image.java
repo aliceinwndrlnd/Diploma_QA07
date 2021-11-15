@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class Image {
     private String id;
-    private boolean yamsStorage;
+    private boolean yams_storage;
 }

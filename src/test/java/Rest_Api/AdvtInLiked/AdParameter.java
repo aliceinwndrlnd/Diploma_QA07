@@ -7,6 +7,6 @@ public class AdParameter {
     private String pl;
     private String vl;
     private String p;
-    private V v;
+    private Object v;
     private String pu;
 }
