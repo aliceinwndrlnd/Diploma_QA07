@@ -15,11 +15,11 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class PositiveTests_Kufar extends BaseTestSelenide {
 
-    @BeforeMethod
+    /*@BeforeMethod
     public void precondition() {
         get(HomePage.class)
                 .сlosePopUp();
-    }
+    }*/
 
 
     @Description("Test to validate select fields")
@@ -87,8 +87,8 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
     public void uploadFileTest() {
         get(LoginPage.class)
                 .clickLoginPage()
-                .enterEmail("email")
-                .enterPassword("password")
+                .enterEmail("AutomationTestQA@yahoo.com")
+                .enterPassword("AutomationTestQA1234")
                 .clickSubmit();
         get(SettingsPage.class)
                 .clickOnProfile()
