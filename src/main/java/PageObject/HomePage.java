@@ -27,7 +27,7 @@ public class HomePage {
     @FindBy(id = "searchbar-main")
     SelenideElement searchField;
 
-    @FindBy(css = "//span[contains(text(),'Вся Беларусь')]")
+    @FindBy(xpath = "//span[contains(text(),'Вся Беларусь')]")
     SelenideElement regionBtn;
 
     @FindBy(xpath = "//span[text()='Ваш регион']")
@@ -42,7 +42,7 @@ public class HomePage {
     @FindBy(xpath = "//button[contains(text(),'Выбрать')]")
     SelenideElement selectBtn;
 
-    @FindBy(xpath = "//h1[contains(text(),'Все объявления в Беларуси')]")
+    @FindBy(xpath = "//h1[contains(text(),'Все объявления ')]")
     SelenideElement mainText;
 
     public HomePage checkPopUpWindow(){
