@@ -22,10 +22,10 @@ public class APiTests {
 
     @BeforeTest
     public void preconditions() throws JsonProcessingException {
-        baseURI = "https://kufar.by/";
+        baseURI = "https://www.kufar.by/";
         String response = given().when().body(mapper.writeValueAsString(login))
                 .and().header("Content-Type", "application/json").when().post("l/api/login/v2/auth/signin?token_type=user").getBody().asPrettyString();
         JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
-        token = jsonObject.get("token").getAsString();
+        token = jsonObject.get("jwt").getAsString();
     }
 }
