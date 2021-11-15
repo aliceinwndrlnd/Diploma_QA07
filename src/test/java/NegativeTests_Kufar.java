@@ -13,11 +13,11 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class NegativeTests_Kufar extends BaseTestSelenide {
 
-    @BeforeMethod
+    /*@BeforeMethod
     public void precondition() {
         get(HomePage.class)
                 .сlosePopUp();
-    }
+    }*/
 
     @Description("Test for the use of incorrect data")
     @Test
