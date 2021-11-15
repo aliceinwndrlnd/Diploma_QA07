@@ -1,12 +1,9 @@
 package Rest_Api;
 
-import Rest_Api.AdvtInLiked.Ad;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.restassured.response.Response;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.baseURI;
