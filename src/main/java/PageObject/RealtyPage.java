@@ -18,7 +18,6 @@ public class RealtyPage {
     @FindBy(xpath = "//button[contains(text(),'Закрыть')]")
     SelenideElement closeBtn;
 
-
     public RealtyPage verifyRealtyPage() {
         title.should(Condition.matchText("Недвижимость"));
         subTitle.should(Condition.matchText("Листай, выбирай, переезжай!"));

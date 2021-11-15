@@ -3,7 +3,6 @@ import PageObject.HomePage;
 import PageObject.LoginPage;
 import PageObject.RegistrationDataPage;
 import PageObject.SettingsPage;
-import jdk.jfr.Description;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -19,9 +18,8 @@ public class NegativeTests_Kufar extends BaseTestSelenide {
                 .сlosePopUp();
     }
 
-    @Description("Test for the use of incorrect data")
     @Test
-    public void loginPageNegativeTest() {
+    public void loginPageNegativeTest() { //ввод некорректных данных
 
         get(LoginPage.class)
                 .clickLoginPage()
@@ -31,9 +29,8 @@ public class NegativeTests_Kufar extends BaseTestSelenide {
                 .checkingErrorText();
     }
 
-    @Description("Test reproducing any defect")
     @Test
-    public void settingsPageNegativeTest() {
+    public void settingsPageNegativeTest() {//воспроизведение дефекта
         get(LoginPage.class)
                 .clickLoginPage()
                 .enterEmail("AutomationTestQA@yahoo.com")
@@ -47,9 +44,8 @@ public class NegativeTests_Kufar extends BaseTestSelenide {
                 .checkingValidationOfName();
     }
 
-    @Description("Test for entering data that does not match the minimum")
     @Test
-    public void registrationDataPageTest() {
+    public void registrationDataPageTest() {//тест на ввод данных, не соответвующих минимальному количеству символов
         get(LoginPage.class)
                 .clickLoginPage()
                 .enterEmail("AutomationTestQA@yahoo.com")
