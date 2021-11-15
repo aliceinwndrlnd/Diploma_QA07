@@ -29,4 +29,16 @@ public class APiTests {
         JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
         token = jsonObject.get("jwt").getAsString();
     }
+
+    @Test
+    public void checkAdvtInLiked() {
+        baseURI = "https://cre-api-v2.kufar.by/";
+        String endpoint = "items-search/v1/engine/v1/search/rendered-paginated?size=32&aid=v.or:141441869";
+        Response response = given().when().header("Authorization", "Bearer " + token)
+                .and().header("Content-Type", "application/json")
+                .get(endpoint);
+        Assert.assertEquals(response.statusCode(), 200);
+        Assert.assertEquals(response.as(Ad.class).getAdLink(), "https://auto.kufar.by/vi/141441869");
+        Assert.assertEquals(response.as(Ad.class).getCurrency(), "USD");
+    }
 }
