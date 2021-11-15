@@ -1,9 +1,11 @@
 package Rest_Api;
 
+import Rest_Api.AdvtInLiked.AdvtInLiked;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -46,6 +48,18 @@ public class APiTests {
                 .post(endpoint).getBody().asPrettyString();
         JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
         errorText = jsonObject.get("message").getAsString();
-        Assert.assertEquals(errorText,"authentication failed");
+        Assert.assertEquals(errorText, "authentication failed");
+    }
+
+    @Test
+    public void checkAdvtInLiked() {
+        baseURI = "https://cre-api-v2.kufar.by/";
+        String endpoint = "items-search/v1/engine/v1/search/rendered-paginated?size=32&aid=v.or:141441869";
+        Response response = given().when().header("Authorization", "Bearer " + token)
+                .and().header("Content-Type", "application/json")
+                .get(endpoint);
+        Assert.assertEquals(response.statusCode(), 200);
+        Assert.assertEquals(response.as(AdvtInLiked.class).getAds()[0].getAd_link(), "https://auto.kufar.by/vi/141441869");
+        Assert.assertEquals(response.as(AdvtInLiked.class).getAds()[0].getCurrency(), "USD");
     }
 }
