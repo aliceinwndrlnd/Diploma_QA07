@@ -104,4 +104,5 @@ public class HomePage {
         autoBtn.click();
         return this;
     }
+
 }
