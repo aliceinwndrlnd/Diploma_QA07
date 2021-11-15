@@ -1,8 +1,5 @@
 import Driver.BaseTestSelenide;
 import PageObject.*;
-import PageObject.Enum.AudiCars;
-import PageObject.Enum.Car;
-import jdk.jfr.Description;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import PageObject.HomePage;
@@ -21,10 +18,8 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .сlosePopUp();
     }
 
-
-    @Description("Test to validate select fields")
     @Test
-    public void chooseRgnOnHomePageTest() {
+    public void chooseRgnOnHomePageTest() { //тест без входа в профиль, выбираю Минск, Первомайский район
         get(HomePage.class)
                 .verifyHomePage()
                 .verifyRegionMenu()
@@ -34,17 +29,8 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .checkMainTxtAfterSelect("Все объявления в Первомайском районе Минска");
     }
 
-    @Description("PopUp Test")
     @Test
-    public void checkingPopUpTest() {
-        get(HomePage.class)
-                .checkPopUpWindow()
-                .closeSecondPopUp();
-    }
-
-    @Description("Dialog display Test")
-    @Test
-    public void identifyNoticeWindowTest() {
+    public void identifyNoticeWindowTest() { //тест cо входом в профиль, проверяю наличие окна с уведомлениями
         get(HomePage.class)
                 .verifyHomePage();
         get(LoginPage.class)
@@ -59,9 +45,8 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .identifyNoticeWindow();
     }
 
-    @Description("Entity creation and deletion test")
     @Test
-    public void entityTest() {
+    public void addCarInLiked() { //тест со входом в профиль на добавление объявления в избранные
         get(HomePage.class)
                 .verifyHomePage();
         get(LoginPage.class)
@@ -70,25 +55,52 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .enterPassword("AutomationTestQA1234")
                 .clickSubmit();
         get(HomePage.class)
-                .goToCarPage();
+                .goToAutoPage();
         get(CarPage.class)
                 .verifyCarPage()
-                .moveToAudiCars(AudiCars.AUDI_CARS)
-                .clickOnCar(Car.CAR)
+                .selectCarBrand("category_2010.mark_audi")
+                .selectFilter("prc.d") // добавила также фильтрацию, чтобы самые дорогие машины сначала были, т.к. список не такой меняющийся получается
+                .scrollToCars() // не уверена, что нужен, но для того, чтобы прокрутить страницу до самих объявлений машин
+                .selectCar(1);
+        get(CarCheckPage.class)
+                .switchToAnotherWindow("Купить  3.0 л, Минск, С пробегом, 48100 км., Бензин, Автомат по цене 206 683 р. на Куфар Авто");
+        get(CarPage.class)
                 .addCarToLiked()
-                .verifyCarInLiked()
+                .verifyCarInLiked("Audi Q8 55 TFSI quattro S line");
+    }
+
+    @Test
+    public void deleteCarFromLiked() {
+        get(HomePage.class)
+                .verifyHomePage();
+        get(LoginPage.class)
+                .clickLoginPage()
+                .enterEmail("AutomationTestQA@yahoo.com")
+                .enterPassword("AutomationTestQA1234")
+                .clickSubmit();
+        get(HomePage.class)
+                .goToAutoPage();
+        get(CarPage.class)
+                .verifyCarPage()
+                .selectCarBrand("category_2010.mark_audi")
+                .selectFilter("prc.d")
+                .scrollToCars()
+                .selectCar(1);
+        get(CarCheckPage.class)
+                .switchToAnotherWindow("Купить  3.0 л, Минск, С пробегом, 48100 км., Бензин, Автомат по цене 206 683 р. на Куфар Авто");
+        get(CarPage.class)
+                .addCarToLiked()
+                .verifyCarInLiked("Audi Q8 55 TFSI quattro S line")
                 .deleteCarFromLiked()
                 .verifyEmptyLiked();
     }
 
-
-    @Description("File Uploader Test")
     @Test
-    public void uploadFileTest() {
+    public void uploadFileTest() { //тест на загрузку файла
         get(LoginPage.class)
                 .clickLoginPage()
-                .enterEmail("email")
-                .enterPassword("password")
+                .enterEmail("AutomationTestQA@yahoo.com")
+                .enterPassword("AutomationTestQA1234")
                 .clickSubmit();
         get(SettingsPage.class)
                 .clickOnProfile()
@@ -98,9 +110,8 @@ public class PositiveTests_Kufar extends BaseTestSelenide {
                 .checkImageAvailability();
     }
 
-    @Description("Test for checking the input field for boundary values")
     @Test
-    public void carCheckTest() {
+    public void carCheckTest() { //проверка на граничные значения
         get(CarCheckPage.class)
                 .clickCarCheckPage()
                 .switchToAnotherWindow("Проверка авто по ВИН на Куфаре")

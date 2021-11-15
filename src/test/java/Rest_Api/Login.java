@@ -6,3 +6,4 @@ import lombok.Data;
         private String email;
         private String password;
     }
+

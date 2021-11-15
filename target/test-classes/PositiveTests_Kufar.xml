@@ -2,9 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Positive_Tests_Kufar" >
     <parameter name="env" value="kufar"/>
-    <test name="File Uploader Test">
-        <parameter name="email" value="AutomationTestQA@yahoo.com"></parameter>
-        <parameter name="password" value="AutomationTestQA1234"></parameter>
+    <test name="Positive Tests">
         <classes>
             <class name="PositiveTests_Kufar"/>
         </classes>

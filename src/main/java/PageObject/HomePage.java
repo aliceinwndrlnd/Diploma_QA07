@@ -6,12 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage {
 
-    @FindBy(xpath = "//h1[contains(text(),' Подпишитесь на уведомления')]")
-    SelenideElement secondPopupWindow;
-
-    @FindBy(xpath = "//button[@id='cancel']")
-    SelenideElement closeSecondPopupBtn;
-
     @FindBy (css = "#portal img")
     SelenideElement closePopUpWindow;
 
@@ -44,17 +38,6 @@ public class HomePage {
 
     @FindBy(css = "h1.kf-QSeV-5c87d")
     SelenideElement mainText;
-
-    public HomePage checkPopUpWindow(){
-        secondPopupWindow.isEnabled();
-        secondPopupWindow.shouldBe(Condition.matchText(" Подпишитесь на уведомления"));
-        return this;
-    }
-
-    public HomePage closeSecondPopUp() {
-        closeSecondPopupBtn.click();
-        return this;
-    }
 
     public HomePage сlosePopUp() {
         closePopUpWindow
@@ -100,7 +83,7 @@ public class HomePage {
         return this;
     }
 
-    public HomePage goToCarPage() {
+    public HomePage goToAutoPage() {
         autoBtn.click();
         return this;
     }
