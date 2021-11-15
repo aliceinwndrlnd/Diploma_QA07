@@ -39,18 +39,6 @@ public class APiTests {
     }
 
     @Test
-    public void unsuccessfulAuthorization() throws JsonProcessingException {
-        baseURI = "https://www.kufar.by/";
-        String endpoint = "l/api/login/v2/auth/signin?token_type=user";
-        String response = given().when().body(mapper.writeValueAsString(uncorrectLogin))
-                .and().header("Content-Type", "application/json").when()
-                .post(endpoint).getBody().asPrettyString();
-        JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
-        errorText = jsonObject.get("message").getAsString();
-        Assert.assertEquals(errorText, "authentication failed");
-    }
-
-    @Test
     public void checkAdvtInLiked() {
         baseURI = "https://cre-api-v2.kufar.by/";
         String endpoint = "items-search/v1/engine/v1/search/rendered-paginated?size=32&aid=v.or:141441869";
@@ -60,5 +48,17 @@ public class APiTests {
         Assert.assertEquals(response.statusCode(), 200);
         Assert.assertEquals(response.as(AdvtInLiked.class).getAds()[0].getAd_link(), "https://auto.kufar.by/vi/141441869");
         Assert.assertEquals(response.as(AdvtInLiked.class).getAds()[0].getCurrency(), "USD");
+    }
+
+    @Test
+    public void unsuccessfulAuthorization() throws JsonProcessingException {
+        baseURI = "https://www.kufar.by/";
+        String endpoint = "l/api/login/v2/auth/signin?token_type=user";
+        String response = given().when().body(mapper.writeValueAsString(uncorrectLogin))
+                .and().header("Content-Type", "application/json").when()
+                .post(endpoint).getBody().asPrettyString();
+        JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
+        errorText = jsonObject.get("message").getAsString();
+        Assert.assertEquals(errorText, "authentication failed");
     }
 }
