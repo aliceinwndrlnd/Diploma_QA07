@@ -1,4 +1,4 @@
-package Rest_Api;
+package Rest_Api.Login;
 import lombok.Data;
 
     @Data
