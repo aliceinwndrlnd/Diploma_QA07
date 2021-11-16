@@ -24,8 +24,9 @@
 hs_err_pid*
 
 
-target
 .idea
-allure-results
-allure-report
+/build/
+/allure-results/
+/allure-report
+/target/
 
