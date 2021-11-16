@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Kufar" thread-count="8" parallel="tests">
+<suite name="Kufar">
     <parameter name="env" value="kufar"/>
-    <test name="PopUpTest">
+    <test name="PopUpTest" enabled="false">
         <classes>
-            <class name="Regression.PopUpTest"></class>
+            <class name="Regression.PopUpTest"/>
         </classes>
     </test>
-    <test name="ChooseRgnTest">
+    <test name="ChooseRgnTest" enabled="false">
         <classes>
-            <class name="Regression.ChooseRgnTest"></class>
+            <class name="Regression.ChooseRgnTest"/>
         </classes>
     </test>
-    <test name="UploadFileTest">
+    <test name="UploadFileTest" enabled="false">
         <classes>
-            <class name="Regression.UploadFileTest"></class>
+            <class name="Regression.UploadFileTest"/>
         </classes>
     </test>
-    <test name="NoticeWindowTest">
+    <test name="NoticeWindowTest" enabled="false">
         <classes>
-            <class name="Regression.NoticeWindowTest"></class>
+            <class name="Regression.NoticeWindowTest"/>
         </classes>
     </test>
-    <test name="CarCheckTest">
+    <test name="CarCheckTest" enabled="false">
         <classes>
-            <class name="Regression.CarCheckTest"></class>
+            <class name="Regression.CarCheckTest"/>
         </classes>
     </test>
-    <test name="LoginPageNegativeTest">
+    <test name="LoginPageNegativeTest" enabled="false">
         <classes>
-            <class name="Regression.LoginPageNegativeTest"></class>
+            <class name="Regression.LoginPageNegativeTest"/>
         </classes>
     </test>
-    <test name="SettingsPageNegativeTest">
+    <test name="SettingsPageNegativeTest" enabled="false">
         <classes>
-            <class name="Regression.SettingsPageNegativeTest"></class>
+            <class name="Regression.SettingsPageNegativeTest"/>
         </classes>
     </test>
-    <test name="RegistrationDataPageTest">
+    <test name="RegistrationDataPageTest" enabled="false">
         <classes>
-            <class name="Regression.RegistrationDataPageTest"></class>
+            <class name="Regression.RegistrationDataPageTest"/>
         </classes>
     </test>
 </suite>
