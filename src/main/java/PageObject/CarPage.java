@@ -8,7 +8,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
 
-public class CarPage {
+public class CarPage extends BasePage{
 
     @FindBy(xpath = "//div[@data-name='logo_auto']")
     SelenideElement title;
