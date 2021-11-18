@@ -3,17 +3,16 @@ pipeline {
 
     tools {
         maven "M3"
-        jdk 'Java 11'
     }
 
     stages {
         stage('Test run') {
             steps {
                 bat 'mvn clean test -Dsuite=src/test/resources/RegressionTests_Kufar'
-                bat 'mvn clean test -Dsuite=src/test/resources/SmokeTest_Kufar'
+                /*bat 'mvn clean test -Dsuite=src/test/resources/SmokeTest_Kufar'*/
             }
         }
-        stage('Reports') {
+        /*stage('Reports') {
                 steps {
                     script {
                         allure([
@@ -24,6 +23,6 @@ pipeline {
                             results: [[path: 'target/allure-results']]
                         ])}
                    }
-           }
+           }*/
     }
 }
