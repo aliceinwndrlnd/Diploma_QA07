@@ -9,7 +9,6 @@ pipeline {
         stage('Test run') {
             steps {
                 bat 'mvn clean test -Dsuite=src/test/resources/RegressionTests_Kufar'
-                /*bat 'mvn clean test -Dsuite=src/test/resources/SmokeTest_Kufar'*/
             }
         }
         /*stage('Reports') {
