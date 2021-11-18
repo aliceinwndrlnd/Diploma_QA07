@@ -4,7 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
-public class RealtyPage {
+public class RealtyPage extends BasePage{
 
     @FindBy(xpath = "//a[contains(text(),'Недвижимость')]")
     SelenideElement title;

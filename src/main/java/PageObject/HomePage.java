@@ -4,7 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage {
+public class HomePage extends BasePage{
 
     @FindBy(xpath = "//h1[contains(text(),' Подпишитесь на уведомления')]")
     SelenideElement secondPopupWindow;

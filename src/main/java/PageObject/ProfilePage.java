@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import java.io.File;
 
 
-public class ProfilePage {
+public class ProfilePage extends BasePage{
 
     @FindBy (css = "#upload_avatar")
     SelenideElement uploader;

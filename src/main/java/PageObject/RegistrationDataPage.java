@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-public class RegistrationDataPage {
+public class RegistrationDataPage extends BasePage{
 
     @FindBy(css = "a[href$='registration_data']")
     SelenideElement registrationDataPage;

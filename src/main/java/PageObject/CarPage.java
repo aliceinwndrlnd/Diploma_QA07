@@ -61,7 +61,6 @@ public class CarPage extends BasePage{
     public CarPage verifyCarInLiked() {
         goToProfile.click();
         liked.click();
-        advtLiked.click();
         titleOfCar.should(Condition.matchText(titleOfCar.getText()));
         return this;
     }

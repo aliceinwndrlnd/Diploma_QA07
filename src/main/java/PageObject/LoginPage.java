@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-public class LoginPage {
+public class LoginPage extends BasePage{
 
     @FindBy (xpath = "//*[@id='header']/div[2]/div[3]//button")
     SelenideElement enterButton;

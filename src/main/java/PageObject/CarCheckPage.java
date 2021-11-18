@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.WebDriverRunner.driver;
 
-public class CarCheckPage {
+public class CarCheckPage extends BasePage{
 
     @FindBy (css = "a[href$='vin_gorizontal&utm_term=menubutton']")
     SelenideElement carCheckPage;

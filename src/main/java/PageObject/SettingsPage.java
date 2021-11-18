@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-public class SettingsPage {
+public class SettingsPage extends BasePage{
 
     @FindBy (xpath = "//*[@id='header']/div[2]/div[3]//span")
     SelenideElement profile;
