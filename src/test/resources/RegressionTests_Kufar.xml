@@ -37,7 +37,7 @@
             <class name="Regression.RegistrationDataPageTest"/>
         </classes>
     </test>
-    <test name="RegistrationDataPageTest" enabled="true">
+    <test name="PopUpTest" enabled="true">
         <classes>
             <class name="Regression.PopUpTest"/>
         </classes>
