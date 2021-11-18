@@ -2,7 +2,7 @@ package Regression;
 
 import Driver.BaseTestSelenide;
 import PageObject.CarCheckPage;
-import jdk.jfr.Description;
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class CarCheckTest extends BaseTestSelenide {

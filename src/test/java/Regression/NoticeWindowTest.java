@@ -4,7 +4,7 @@ import Driver.BaseTestSelenide;
 import PageObject.HomePage;
 import PageObject.LoginPage;
 import PageObject.RealtyPage;
-import jdk.jfr.Description;
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class NoticeWindowTest extends BaseTestSelenide {

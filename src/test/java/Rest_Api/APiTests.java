@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.qameta.allure.Description;
 import io.restassured.response.Response;
 import lombok.extern.log4j.Log4j2;
 import org.testng.Assert;
@@ -30,6 +31,7 @@ public class APiTests {
         setPassword("ttt");
     }};
 
+    @Description("Successful Authorization Test")
     @Test
     public void successfulAuthorization() throws JsonProcessingException {
         baseURI = "https://www.kufar.by/";
@@ -41,6 +43,7 @@ public class APiTests {
         token = jsonObject.get("jwt").getAsString();
     }
 
+    @Description("Addition in a cart Test")
     @Test
     public void checkAdvtCarInLiked() {
         baseURI = "https://cre-api-v2.kufar.by/";
@@ -53,6 +56,7 @@ public class APiTests {
         Assert.assertEquals(response.as(AdvtInLiked.class).getAds()[0].getCurrency(), "USD");
     }
 
+    @Description("Checking ad information Test")
     @Test
     public void checkAdvtRealtyInLiked() {
         baseURI = "https://cre-api-v2.kufar.by/";
@@ -66,6 +70,7 @@ public class APiTests {
         Assert.assertEquals(response.as(Rest_Api.AdvtRealtyInLiked.AdvtInLiked.class).getAds()[0].getSubject(), "Жилой комплекс «Парк Челюскинцев»");
     }
 
+    @Description("Unuccessful Authorization Test")
     @Test
     public void unsuccessfulAuthorization() throws JsonProcessingException {
         baseURI = "https://www.kufar.by/";

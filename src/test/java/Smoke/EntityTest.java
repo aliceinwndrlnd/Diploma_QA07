@@ -6,7 +6,7 @@ import PageObject.Enum.AudiCars;
 import PageObject.Enum.Car;
 import PageObject.HomePage;
 import PageObject.LoginPage;
-import jdk.jfr.Description;
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class EntityTest extends BaseTestSelenide {

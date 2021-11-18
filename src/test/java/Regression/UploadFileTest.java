@@ -4,7 +4,7 @@ import Driver.BaseTestSelenide;
 import PageObject.LoginPage;
 import PageObject.ProfilePage;
 import PageObject.SettingsPage;
-import jdk.jfr.Description;
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class UploadFileTest extends BaseTestSelenide {

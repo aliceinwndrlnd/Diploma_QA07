@@ -3,7 +3,7 @@ package Regression;
 import Driver.BaseTestSelenide;
 import PageObject.LoginPage;
 import PageObject.SettingsPage;
-import jdk.jfr.Description;
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class SettingsPageNegativeTest extends BaseTestSelenide {
