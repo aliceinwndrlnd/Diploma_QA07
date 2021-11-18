@@ -11,11 +11,6 @@ import org.testng.annotations.Test;
 
 public class EntityTest extends BaseTestSelenide {
 
-    /*@BeforeTest
-    public void precondition() {
-        get(HomePage.class)
-                .сlosePopUp();
-    }*/
 
     @Description("Entity creation and deletion test")
     @Test
@@ -28,6 +23,7 @@ public class EntityTest extends BaseTestSelenide {
                 .enterPassword("AutomationTestQA1234")
                 .clickSubmit();
         get(HomePage.class)
+                .closeSecondPopUp()
                 .goToCarPage();
         get(CarPage.class)
                 .verifyCarPage()
