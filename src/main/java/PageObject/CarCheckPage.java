@@ -11,6 +11,9 @@ public class CarCheckPage extends BasePage{
     @FindBy (css = "a[href$='vin_gorizontal&utm_term=menubutton']")
     SelenideElement carCheckPage;
 
+    @FindBy(xpath = "//button[@id='cancel']")
+    SelenideElement closeSecondPopupBtn;
+
     @FindBy (css = ".center-wrapper h1")
     SelenideElement pageTitle;
 
@@ -19,6 +22,11 @@ public class CarCheckPage extends BasePage{
 
     @FindBy (css = ".btn-wrapper button")
     SelenideElement submitButton;
+
+    public CarCheckPage closeSecondPopUp() {
+        closeSecondPopupBtn.click();
+        return this;
+    }
 
     public CarCheckPage clickCarCheckPage() {
         carCheckPage.click();
