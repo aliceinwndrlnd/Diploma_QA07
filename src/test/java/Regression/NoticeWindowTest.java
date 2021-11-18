@@ -20,6 +20,7 @@ public class NoticeWindowTest extends BaseTestSelenide {
                 .enterPassword("AutomationTestQA1234")
                 .clickSubmit();
         get(HomePage.class)
+                .closeSecondPopUp()
                 .goToRealtyPage();
         get(RealtyPage.class)
                 .verifyRealtyPage()

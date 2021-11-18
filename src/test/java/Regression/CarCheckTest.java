@@ -11,6 +11,7 @@ public class CarCheckTest extends BaseTestSelenide {
     @Test
     public void carCheckTest() {
         get(CarCheckPage.class)
+                .closeSecondPopUp()
                 .clickCarCheckPage()
                 .switchToAnotherWindow("Проверка авто по ВИН на Куфаре")
                 .verifyTitle()
