@@ -25,9 +25,6 @@ public class CarPage extends BasePage{
     @FindBy(xpath = "//a[@data-name = 'profile_menu_saved_link']")
     SelenideElement liked;
 
-    @FindBy(xpath = "//a[@data-tab = 'ads']")
-    SelenideElement advtLiked;
-
     @FindBy(xpath = "//a[contains(@href,'auto.kufar.by/vi')]//h3")
     SelenideElement titleOfCar;
 
