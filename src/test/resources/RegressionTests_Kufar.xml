@@ -7,11 +7,6 @@
             <class name="Regression.ChooseRgnTest"/>
         </classes>
     </test>
-    <test name="PopUpTest" enabled="true">
-        <classes>
-            <class name="Regression.PopUpTest"/>
-        </classes>
-    </test>
     <test name="UploadFileTest" enabled="true">
         <classes>
             <class name="Regression.UploadFileTest"/>
@@ -40,6 +35,11 @@
     <test name="RegistrationDataPageTest" enabled="true">
         <classes>
             <class name="Regression.RegistrationDataPageTest"/>
+        </classes>
+    </test>
+    <test name="RegistrationDataPageTest" enabled="true">
+        <classes>
+            <class name="Regression.PopUpTest"/>
         </classes>
     </test>
 </suite>
